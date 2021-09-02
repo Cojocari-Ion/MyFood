@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/945a835678.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/banchet.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <title>Meniu</title>
+</head>
+<body>
+
+    <!--header-->
+    <header style="background-image: url(assets/imgs/banchet/banchet.jpg);">
+        <!--Navbar Transparent-->
+        <nav class="transformY fixed-top">
+            
+            <span class="nav-header">
+              <a href="index.html">MyFood</a>
+              <i class="fas fa-bars"></i>
+            </span>
+            <ul id="toggleMenu" class="disapear toggleMenu">
+              <li class="faded"><a href="index.html">acasă</a></li>
+              <li class="faded"><a name="trends" href="index.html#section-trenduri">trenduri</a></li>
+              <li class="faded"><a href="meniu.html">meniu</a></li>
+              <li class="faded"><a href="banchete.html">banchete</a></li>
+              <li class="faded"><a href="evenimente.html">evenimente</a></li>
+              <li class="faded"><a href="contact.html">contacte</a></li> 
+              <li class="faded"><a href="#">oferte</a></li>
+              <li class="faded" id="sm-links">
+                <a href="#"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>         
+            </ul>
+        </nav>
+
+        <script>
+
+          const navbar = document.querySelector('nav');
+          const navbarToggler = document.querySelector('.fa-bars');
+
+          //navbar toggle
+          navbarToggler.addEventListener("click", function() {
+            const toggleMenu = document.querySelector('#toggleMenu');
+            toggleMenu.classList.toggle("toggleMenu");
+          });
+          //navbar toggle end
+          
+          //navbar animated
+          
+
+          window.addEventListener("scroll", function() {
+            var top = window.scrollY;
+            const height = window.innerHeight;
+
+            if (top > height/4) {
+              navbar.classList.add("nav-switch");
+              
+            } else {
+              navbar.classList.remove("nav-switch");
+            }
+          });
+
+          
+
+
+          window.addEventListener("load", function() {
+            navbar.classList.remove("transformY");
+
+            
+            let listOrder = -1;
+            const links = document.querySelectorAll('li');
+            var interval = setInterval(frame, 100);
+            var length = links.length;
+            
+            
+            function frame( ) {
+              if (listOrder == length-1) {
+                clearInterval(interval);
+              } else {
+                listOrder++;
+                links[listOrder].classList.remove("faded");
+              }
+            }
+            
+
+
+          });
+
+          
+          //navbar animated end
+          
+        </script>
+        <!--/Navbar Transparent-->
+
+        <section id="hero" >
+            <h2>banchete</h2>
+            <a href="contact.html">rezervează un eveniment</a>
+        </section>
+    </header>   
+    <!--/header-->
+
+    <section id="events">
+        <div class="sides left-side">
+
+            <div class="event-type">
+                <h4>nunți</h4>
+                <img width="30%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDM2OC44NzUgMzY4Ljg3NSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBkPSJNMTg0LjQ4NywxMDkuNTNjNC42ODMsMCwxMy43MTItNS41MjUsMjYuODM5LTE2LjQyNGM5LjA2Ni03LjUyNiwyMC4zOTgtMTguMDcsMjUuMDEyLTI1LjA4NyAgIGMzLjQ5OC01LjMxOCw3LjQzOS0xMi43OTgsNi44NjYtMjMuNTE1Yy0wLjk1My0xNy44MTYtMTUuMzI4LTMxLjc3Mi0zMi43MjUtMzEuNzcyYy0xMi40MDMsMC0yMS4xLDkuMTUzLTI1LjkxNywxNC40MDEgICBjLTQuNTctNS4xNjUtMTMuMzQzLTE0LjQwMS0yNi4xNjQtMTQuNDAxYy0xNy4zOTYsMC0zMS43NzEsMTMuOTU2LTMyLjcyNSwzMS43NzNjLTAuNTgsMTAuODU3LDMuNjQyLDE4LjYyMiw2Ljg2OSwyMy41MTggICBDMTM5LjY3MSw3OC44NDUsMTc0LjExNiwxMDkuNTMsMTg0LjQ4NywxMDkuNTN6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8cGF0aCBkPSJNMjUxLjkzOSwxMjIuMjcxYy0yNS4xMjMsMC00OC40Miw3Ljk2Ni02Ny41MDEsMjEuNTAxYy0xOS4wODEtMTMuNTM2LTQyLjM3OC0yMS41MDEtNjcuNTAxLTIxLjUwMSAgIEM1Mi40NTgsMTIyLjI3MSwwLDE3NC43MjksMCwyMzkuMjA3czUyLjQ1OCwxMTYuOTM2LDExNi45MzYsMTE2LjkzNmMyNS4xMjMsMCw0OC40Mi03Ljk2NSw2Ny41MDEtMjEuNTAxICAgYzE5LjA4MSwxMy41MzYsNDIuMzc4LDIxLjUwMSw2Ny41MDEsMjEuNTAxYzY0LjQ3OSwwLDExNi45MzYtNTIuNDU3LDExNi45MzYtMTE2LjkzNlMzMTYuNDE3LDEyMi4yNzEsMjUxLjkzOSwxMjIuMjcxeiAgICBNMTg0LjQzOCwyOTMuOTI1Yy0xMi4xNDQtMTQuOTUzLTE5LjQzNS0zMy45OTktMTkuNDM1LTU0LjcxOHM3LjI5LTM5Ljc2NiwxOS40MzUtNTQuNzE5ICAgYzEyLjE0NCwxNC45NTMsMTkuNDM1LDMzLjk5OSwxOS40MzUsNTQuNzE5UzE5Ni41ODIsMjc4Ljk3MywxODQuNDM4LDI5My45MjV6IE0zMCwyMzkuMjA3YzAtNDcuOTM3LDM5LTg2LjkzNyw4Ni45MzYtODYuOTM3ICAgYzE2LjQxLDAsMzEuNzcxLDQuNTcyLDQ0Ljg4LDEyLjUwNmMtMTYuNzQxLDIwLjIzNS0yNi44MTMsNDYuMTc4LTI2LjgxMyw3NC40M2MwLDI4LjI1MiwxMC4wNzIsNTQuMTk1LDI2LjgxMyw3NC40MyAgIGMtMTMuMTA5LDcuOTM0LTI4LjQ3LDEyLjUwNi00NC44OCwxMi41MDZDNjksMzI2LjE0MywzMCwyODcuMTQ0LDMwLDIzOS4yMDd6IE0yNTEuOTM5LDMyNi4xNDMgICBjLTE2LjQwOSwwLTMxLjc3MS00LjU3Mi00NC44OC0xMi41MDZjMTYuNzQxLTIwLjIzNSwyNi44MTMtNDYuMTc4LDI2LjgxMy03NC40M2MwLTI4LjI1Mi0xMC4wNzItNTQuMTk2LTI2LjgxMy03NC40MyAgIGMxMy4xMDktNy45MzQsMjguNDctMTIuNTA2LDQ0Ljg4LTEyLjUwNmM0Ny45MzcsMCw4Ni45MzYsMzksODYuOTM2LDg2LjkzN1MyOTkuODc1LDMyNi4xNDMsMjUxLjkzOSwzMjYuMTQzeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjwvZz48L3N2Zz4=" />
+               
+            </div>
+
+            <div class="event-type">
+                <h4>corporative</h4>
+                <img width="30%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMi4wNDggNTEyLjA0OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+PGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtOTEuMjQ3IDM1Ni4xOS0yNy4zNzEgNjMuMTg1LTU2LjAxMiAzMC40MjNjLTUuMDY3IDIuNzUzLTguMTA4IDguMTY2LTcuODIyIDEzLjkyNXMzLjg0NyAxMC44NDUgOS4xNjIgMTMuMDgybDgwLjkyNyAzNC4wNjhjMS44NzYuNzkgMy44NTQgMS4xNzUgNS44MTcgMS4xNzUgMy42NDUgMCA3LjI0LTEuMzI4IDEwLjA0OC0zLjg2IDQuMzItMy44OTYgNS45OTktOS45MzkgNC4zMDYtMTUuNTA1bC0xOC43NjUtNjEuNjg5IDI3LjA3My02Mi40OTljNC45NDEgMS4wNjggOS45NTIgMS42MTkgMTQuOTY3IDEuNjE5IDkuMTQgMCAxOC4yODUtMS43NzUgMjcuMDA0LTUuMzI4IDE3LjY5OC03LjIxMiAzMS41MjgtMjAuODg0IDM4Ljk0NC0zOC40OTdsMjkuODE0LTcwLjgyMi0xNjYuMTkgNTUuMzk2YzMuMTY1IDE3Ljg3MyAxMy4wNTIgMzQuMjc5IDI4LjA5OCA0NS4zMjd6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTM5My44MDQgOTIuMTY0YzIuNDY5IDEuNTQgNS4yMTMgMi4yNzQgNy45MjMgMi4yNzQgNS4wMDYgMCA5Ljg5OC0yLjUwNCAxMi43NDItNy4wNjRsMjUuODk5LTQxLjUyN2M0LjM4NC03LjAyOSAyLjIzOS0xNi4yODEtNC43OS0yMC42NjUtNy4wMjgtNC4zODUtMTYuMjgxLTIuMjM4LTIwLjY2NSA0Ljc5bC0yNS44OTkgNDEuNTI3Yy00LjM4NCA3LjAyOS0yLjIzOSAxNi4yODEgNC43OSAyMC42NjV6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTMzNS4yOTMgNjYuMDY5YzEuNjA2IDYuOTMxIDcuNzc2IDExLjYxNiAxNC41OTkgMTEuNjE2IDEuMTIyIDAgMi4yNjEtLjEyNiAzLjQtLjM5MSA4LjA3LTEuODcgMTMuMDk3LTkuOTI5IDExLjIyNi0xNy45OTlsLTExLjA1LTQ3LjY3N2MtMS44Ny04LjA3LTkuOTI2LTEzLjEwNC0xNy45OTktMTEuMjI2LTguMDcgMS44Ny0xMy4wOTcgOS45MjktMTEuMjI2IDE3Ljk5OXoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtNDIxLjc1NiAxMjIuMzE4YzEuNjA2IDYuOTMyIDcuNzc2IDExLjYxNiAxNC41OTkgMTEuNjE2IDEuMTIxIDAgMi4yNjItLjEyNiAzLjQtLjM5MWw0Ny42NzgtMTEuMDVjOC4wNy0xLjg3IDEzLjA5Ny05LjkyOSAxMS4yMjYtMTcuOTk5LTEuODctOC4wNy05LjkyNS0xMy4xMDQtMTcuOTk5LTExLjIyNmwtNDcuNjc4IDExLjA1Yy04LjA3IDEuODcxLTEzLjA5NyA5LjkzLTExLjIyNiAxOHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48Y2lyY2xlIGN4PSIxNTcuNzczIiBjeT0iNjcuNDI1IiByPSIxNC43MzQiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEwOC4yMDIiIGN5PSIzOS40NjgiIHI9IjE0LjczNCIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTIuODIiIGN5PSI5My4wMiIgcj0iMTQuNzM0IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L2NpcmNsZT48cGF0aCBkPSJtNDI5LjM1IDIzNS01MC4wMDgtMTE4Ljc5Yy0xLjU0NC0zLjY2Ni00LjQ4LTYuNTY5LTguMTY1LTguMDctMy42ODItMS41MDItNy44MTMtMS40NzktMTEuNDguMDY1bC0xMDMuNjczIDQzLjY0NS0xMDMuNjc0LTQzLjY0NWMtMy42NjctMS41NDMtNy43OTYtMS41NjgtMTEuNDgtLjA2NS0zLjY4NSAxLjUwMS02LjYyMSA0LjQwNC04LjE2NSA4LjA3bC02NS4wNjUgMTU0LjU1NmMtMS4wOTggMi42MDktMi4wMTUgNS4yNDktMi43ODQgNy45MDRsMTc5Ljk2OS01OS45OSAxNi4yMDEtMzguNDg0em0tMjU2LjY0My0zMS4xM2MtOC4xMzcgMC0xNC43MzQtNi41OTctMTQuNzM0LTE0LjczNHM2LjU5Ny0xNC43MzQgMTQuNzM0LTE0LjczNCAxNC43MzQgNi41OTcgMTQuNzM0IDE0LjczNC02LjU5NyAxNC43MzQtMTQuNzM0IDE0LjczNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48cGF0aCBkPSJtNTA0LjE4MyA0NDkuNzk4LTU2LjAxMy0zMC40MjMtMjcuMzctNjMuMTg1YzI1Ljg0NC0xOC45NzYgMzYuNDk3LTUzLjc1MyAyMy45MTgtODQuNjM3bC0xNzkuODk0LTU4LjU2OSA0Ny42OTggMTEzLjMwNGM3LjQxNSAxNy42MTQgMjEuMjQ1IDMxLjI4NiAzOC45NDMgMzguNDk4IDguNzIgMy41NTMgMTcuODYzIDUuMzI4IDI3LjAwNCA1LjMyOCA1LjAxNCAwIDEwLjAyNi0uNTUyIDE0Ljk2OC0xLjYybDI3LjA3NCA2Mi40OTktMTguNzY1IDYxLjY5Yy0xLjY5MyA1LjU2NS0uMDE2IDExLjYwOCA0LjMwNSAxNS41MDUgMi44MDkgMi41MzIgNi40MDMgMy44NiAxMC4wNDkgMy44NiAxLjk2MyAwIDMuOTQtLjM4NSA1LjgxNy0xLjE3NWw4MC45MjgtMzQuMDY4YzUuMzE0LTIuMjM3IDguODc2LTcuMzIzIDkuMTYxLTEzLjA4Mi4yODYtNS43NTktMi43NTUtMTEuMTcyLTcuODIzLTEzLjkyNXptLTEyOC4wOTktMTQxLjQyNmMtOC4xMzcgMC0xNC43MzQtNi41OTctMTQuNzM0LTE0LjczNHM2LjU5Ny0xNC43MzQgMTQuNzM0LTE0LjczNCAxNC43MzQgNi41OTcgMTQuNzM0IDE0LjczNC02LjU5NiAxNC43MzQtMTQuNzM0IDE0LjczNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" />
+
+            </div>
+
+            <div class="event-type">
+                <h4>petreceri</h4>
+                <img width="30%" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMi4wMzEgNTEyLjAzMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+PGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMTU4LjIxNyAxNDYuOTgzYy03LjY5My03LjY5NC0yMC44MTgtNC44ODEtMjQuNjUxIDUuMzM5bC0xMjcuMjggMzM5LjQxMmMtNC41MDkgMTIuMDIzIDcuMjY2IDIzLjgzMSAxOS4zMTIgMTkuMzEyIDE3LjA0Ny02LjM5MyAzMjUuNzMzLTEyMi4xNSAzMzkuNDExLTEyNy4yNzkgMTAuMTczLTMuODE0IDEzLjA3My0xNi45MTkgNS4zNC0yNC42NTF6bS00Ljc0MiAzNy42ODUgNjEuNjQxIDYxLjY0MWM0LjI2NSA1MS4yNjEgMjMuMjU1IDEwMC41NCA1NC4yMiAxNDEuMjk0bC02NC4xNjcgMjQuMDYzYy00Ny45OTYtNDkuOTI2LTcyLjQ5LTExOS43MjgtNjUuOTY2LTE4OC45Mzl6bS00MC40NDIgMjYxLjU0OWMtMTQuNzk3LTE2LjgwNi0yNy4xMDQtMzUuNTM2LTM2LjY5NS01NS44NWwzNi4yMjQtOTYuNTk5YzguOTk3IDQ5LjQwOSAzMS4xODggOTMuNjA4IDYyLjMxMyAxMjkuMjU3em0tNTAuNjgzLTE4LjU0OGM2LjI3NiAxMC4zNzIgMTMuMjQ2IDIwLjI5MyAyMC44NzQgMjkuNzI3bC0zNy4yNjEgMTMuOTczem0yMzYuNDctNTEuMTIyYy0yMi40OTYtMjcuMzctMzguNjQzLTU5LjU2NC00Ny4zMDctOTMuODQxbDgxLjE1IDgxLjE1eiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxnPjxwYXRoIGQ9Im0zNTMuODM5IDI4MC4xNjVjNS44NTggNS44NTggMTUuMzU1IDUuODU4IDIxLjIxMyAwIDU2LjQzMi01Ni40MzIgMTExLjM4MS0zOC45ODUgMTExLjkzLTM4LjgwMyA3Ljg1OSAyLjYxOSAxNi4zNTQtMS42MjggMTguOTc0LTkuNDg3IDIuNjIxLTcuODU3LTEuNjI4LTE2LjM1NC05LjQ4Ny0xOC45NzQtMi45NTgtLjk4NS03My4yMzItMjMuMzQ3LTE0Mi42MjkgNDYuMDUxLTUuODU5IDUuODU3LTUuODYgMTUuMzU2LS4wMDEgMjEuMjEzeiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjwvZz48cGF0aCBkPSJtMjM3LjE2NiAxNjMuNDkyYzUuODU3IDUuODU4IDE1LjM1NSA1Ljg1OSAyMS4yMTMgMCA2OS4zOTctNjkuMzk3IDQ3LjAzNi0xMzkuNjcxIDQ2LjA1MS0xNDIuNjI5LTIuNjItNy44NTktMTEuMTE2LTEyLjEwOC0xOC45NzQtOS40ODctNy44NTkgMi42Mi0xMi4xMDYgMTEuMTE1LTkuNDg3IDE4Ljk3NC4xODMuNTQ5IDE3LjYyOSA1NS40OTgtMzguODAzIDExMS45My01Ljg1OCA1Ljg1Ny01Ljg1OCAxNS4zNTUgMCAyMS4yMTJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTI5MC4xOTkgMTk1LjMxM2MtNS44NTggNS44NTgtNS44NTggMTUuMzU1IDAgMjEuMjEzIDUuODA0IDUuODA1IDE1LjIzNSA1Ljg4MSAyMS4xMjQuMDg5IDcuNzQ5LTMuODYxIDMxLjgwMSAxMC42MjEgNDUuMTY4LTIuNzQxIDEzLjIyMy0xMy4yMjQtLjgyNi0zNi43ODcgMi42ODMtNDUuMDQ1IDguMjY5LTMuNTE4IDMxLjgyMyAxMC41MzggNDUuMDQ2LTIuNjg0IDEzLjIyNi0xMy4yMjQtLjgyNC0zNi43ODcgMi42ODUtNDUuMDQ2IDguMjgxLTMuNTE5IDMxLjgyMiAxMC41MzkgNDUuMDQ1LTIuNjg0IDEzLjIyNi0xMy4yMjQtLjgyNC0zNi43ODcgMi42ODUtNDUuMDQ2IDguMjMyLTMuNTAxIDMxLjgzMiAxMC41MjUgNDUuMDQ3LTIuNjg1IDEzLjM2MS0xMy4zNjMtMS4wOTQtMzcuNDU4IDIuNzM5LTQ1LjE2NyA1Ljc3LTUuODY0IDUuNzM5LTE1LjI5NS0uMDg5LTIxLjEyNC01Ljg1Ny01Ljg1OC0xNS4zNTUtNS44NTgtMjEuMjEzIDAtMTEuODIzIDExLjgyMy05LjUxIDI4LjUxNC03LjI4MyA0MC40NDctMTEuOTMzLTIuMjI3LTI4LjYyMy00LjU0LTQwLjQ0NiA3LjI4Mi0xMS44MjMgMTEuODIzLTkuNTEgMjguNTE0LTcuMjgzIDQwLjQ0Ny0xMS45MzMtMi4yMjYtMjguNjI1LTQuNTQxLTQwLjQ0NyA3LjI4My0xMS44MjMgMTEuODIzLTkuNTA5IDI4LjUxNC03LjI4MiA0MC40NDctMTEuOTM1LTIuMjI3LTI4LjYyNS00LjU0MS00MC40NDcgNy4yODItMTEuODIzIDExLjgyMy05LjUxIDI4LjUxNC03LjI4MyA0MC40NDctMTEuOTM0LTIuMjI1LTI4LjYyOC00LjUzOC00MC40NDkgNy4yODV6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PHBhdGggZD0ibTM3NS4wNTIgNjguMDMzYzUuODU4LTUuODU4IDUuODU4LTE1LjM1NSAwLTIxLjIxM3MtMTUuMzU1LTUuODU4LTIxLjIxMyAwLTUuODU4IDE1LjM1NSAwIDIxLjIxM2M1Ljg1NyA1Ljg1OCAxNS4zNTUgNS44NTggMjEuMjEzIDB6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+PGNpcmNsZSBjeD0iNDcwLjUxMSIgY3k9IjE2My40OTMiIHI9IjE1IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L2NpcmNsZT48cGF0aCBkPSJtNDM4LjY5MSAzMDEuMzc5Yy01Ljg1OCA1Ljg1OC01Ljg1OCAxNS4zNTUgMCAyMS4yMTNzMTUuMzU1IDUuODU4IDIxLjIxMyAwIDUuODU4LTE1LjM1NSAwLTIxLjIxM2MtNS44NTctNS44NTgtMTUuMzU1LTUuODU4LTIxLjIxMyAweiIgZmlsbD0iI2ZmZmZmZiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPjxwYXRoIGQ9Im0yMjYuNTU5IDg5LjI0NmM1Ljg1OC01Ljg1OCA1Ljg1OC0xNS4zNTUgMC0yMS4yMTNzLTE1LjM1NS01Ljg1OC0yMS4yMTMgMGMtNS44NTggNS44NTctNS44NTggMTUuMzU1IDAgMjEuMjEzczE1LjM1NiA1Ljg1OCAyMS4yMTMgMHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==" />
+
+            </div>
+        </div>
+
+        <div class="sides right-side">
+            <article>
+
+                <div class="article-header">
+                    <span class="tittle">nunți</span>
+                    <span class="price">de la 50$/persoană</span>
+                </div>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum minima, quasi ipsa consectetur optio voluptatem? Error qui ullam similique, eligendi modi repellendus consequuntur beatae dolore excepturi! Vel alias aliquam eius.
+                    <br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae minima ipsam omnis enim quia nobis est dignissimos assumenda sint eum repellat natus exercitationem illum quibusdam iste, at facere blanditiis dolorum!
+                </p>
+
+                <div class="article-footer">
+                    <div class="element">
+                        <i class="far fa-star"></i>
+                        <span>140 ani experiență</span>
+                    </div>
+                    <div class="element">
+                        <i class="far fa-star"></i>
+                        <span>calitate superioară</span>
+                    </div>
+                    <div class="element">
+                        <i class="far fa-star"></i>
+                        <span>clienți mulțumiți</span>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </section>
+
+</body>
+
+<!--footer-->
+<footer>
+    <div class="footer-wrap">
+    <div class="container first_class">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+            <h3>abonează-te</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, vitae architecto. Iste labore quidem, maiores tempore laboriosam modi unde vitae. </p>
+          </div>
+          <div class="col-md-4 col-sm-6">
+          <form class="newsletter">
+             <input type="text" placeholder="Email Address"> 
+            <button type="button">abonează-te</button>  
+          </form>
+          
+          </div>
+          <div class="col-md-4 col-sm-6">
+          <div class="col-md-12">
+            <div class="standard_social_links">
+          <div>
+            <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
+  
+            </li>
+            <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+  
+            </li>
+            <li class="round-btn btn-twitter"><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+  
+            </li>
+            <li class="round-btn btn-instagram"><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+  
+            </li>
+            <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+  
+            </li>
+            <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+  
+            </li>
+          </div>
+        </div>  
+          </div>
+            <div class="clearfix"></div>
+          <div class="col-md-12"><h3 style="text-align: center;">Stay Connected</h3></div>
+          </div>
+        </div>
+    </div>
+      <div class="second_class">
+        <div class="container second_class_bdr">
+        <div class="row">
+          <div class="col-md-4 col-sm-6">
+  
+            <div class="footer-logo">
+                <span id="logo">MyFood</span>
+            </div>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis dolorum illo, beatae quasi voluptatum nobis et doloremque architecto.</p>
+          </div>
+          <div class="col-md-2 col-sm-6">
+
+            <ul class="footer-links">
+              <li><a href="index.html">Acasă</a>
+              </li>
+              <li><a href="index.html#section-trenduri">Trenduri</a>
+              </li>
+              <li><a href="#">Meniu</a>
+              </li>
+              <li><a href="#">Contacte</a>
+              </li>
+              
+              <li><a href="#">Oferte</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <ul class="footer-category">
+                <li><a href="#">Evenimente</a>
+                </li>
+                <li><a href="#">Recrutare</a>
+                </li>
+                <li><a href="#">Banchete</a>
+                </li>
+                
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+           
+            <ul class="footer-links">
+              <li><a href="#">Ajută un sărac</a>
+              </li>
+  
+              <li><a href="#">Jobs &AMP; Internship</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+      </div>
+      
+      <div class="row">
+        
+        <div class="container-fluid">
+        <div class="copyright"> Totul este creat de mine si doar de mine</div>
+        </div>
+        
+      </div>
+    </div>
+    
+</footer>
+ <!--/footer-->
+
+<!--flash section-->
+<div class="white-thing"></div>
+<script>
+  const whiteThing = document.querySelector(".white-thing");
+
+  window.onload = function() {
+    whiteThing.classList.add("solubil");
+
+    setTimeout(function(){ 
+    whiteThing.remove();
+   }, 800);
+  }
+</script>
+<!--/flash section-->
+
+</html>

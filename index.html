@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/945a835678.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <!--Navbar Transparent-->
+        <nav class="transformY fixed-top">
+            
+            <span class="nav-header">
+              <a href="index.html">MyFood</a>
+              <i class="fas fa-bars"></i>
+            </span>
+            <ul id="toggleMenu" class="disapear toggleMenu">
+              <li class="faded"><a href="index.html">acasă</a></li>
+              <li class="faded"><a href="#section-trenduri">trenduri</a></li>
+              <li class="faded"><a href="meniu.html">meniu</a></li>
+              <li class="faded"><a href="banchete.html">banchete</a></li>
+              <li class="faded"><a href="evenimente.html">evenimente</a></li>
+              <li class="faded"><a href="#section">contacte</a></li> 
+              <li class="faded"><a href="#">oferte</a></li>
+              <li class="faded" id="sm-links">
+                <a href="#"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>         
+            </ul>
+        </nav>
+
+        <script>
+
+          const navbar = document.querySelector('nav');
+          const navbarToggler = document.querySelector('.fa-bars');
+
+          //navbar toggle
+          navbarToggler.addEventListener("click", function() {
+            const toggleMenu = document.querySelector('#toggleMenu');
+            toggleMenu.classList.toggle("toggleMenu");
+          });
+          //navbar toggle end
+          
+          //navbar animated
+          
+
+          window.addEventListener("scroll", function() {
+            var top = window.scrollY;
+            const height = window.innerHeight;
+
+            if (top > height/4) {
+              navbar.classList.add("nav-switch");
+              
+            } else {
+              navbar.classList.remove("nav-switch");
+            }
+          });
+
+          
+
+
+          window.addEventListener("load", function() {
+            navbar.classList.remove("transformY");
+
+            
+            let listOrder = -1;
+            const links = document.querySelectorAll('li');
+            var interval = setInterval(frame, 100);
+            var length = links.length;
+            
+            
+            function frame( ) {
+              if (listOrder == length-1) {
+                clearInterval(interval);
+              } else {
+                listOrder++;
+                links[listOrder].classList.remove("faded");
+              }
+            }
+            
+
+
+          });
+
+          
+          //navbar animated end
+          
+        </script>
+
+        
+        <!--/Navbar Transparent-->
+  
+        <!--carousel + call to action-->
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/imgs/salad.jpg"  class="d-block " alt="salata">
+              <div id="firstCaption" class="faded-caption carousel-caption h-100">
+                <h2>trendurile sezonului</h2>
+                <a href=""><button type="button">detalii</button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="assets/imgs/chef.jpg" class="d-block " alt="chef">
+              <div class="carousel-caption h-100">
+                <h2>începe cariera la noi</h2>
+                <a href=""><button type="button">detalii</button></a>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="assets/imgs/breakfast.jpg" class="d-block " alt="breakfast">
+              <div class="carousel-caption h-100">
+                <h2>ia micul dejunul la noi</h2>
+                <a href=""><button type="button">detalii</button></a>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+
+
+          <!--carousel script-->
+          <script>
+            window.addEventListener("load", function()  {
+              const slideCaption = document.getElementById("firstCaption");
+              slideCaption.classList.remove("faded-caption");
+
+            });
+
+          </script>
+          <!--/carousel script-->
+
+
+        </div>
+      <!--/carousel call to action-->
+  
+    </header>
+
+    <!--diverse (meniu, categorii, evenimente)-->
+    <div id="section-diverse" class="transform-section">
+      <!--left side-->
+      <div class="left-card cards" style="background-image: url(assets/imgs/menu.jpg);">
+        <a class="card-link" href="meniu.html">
+          <h3>meniu</h3>
+        </a>
+      </div>
+      <!--/left side-->
+
+      <!--right side-->
+      <div class="right-card cards">
+        <div class="small-card" style="background-image: url(assets/imgs/burger.jpg);">
+          <a href="">
+            <h3>burgere</h3>
+          </a>
+          
+        </div>
+        <div class="small-card" style="background-image: url(assets/imgs/pizza.jpg)">
+          <a class="card-link" href="#">
+            <h3>pizza</h3>
+          </a>
+        </div>
+        <div class="small-card" style="background-image: url(assets/imgs/charity.jpg);">
+          <a class="card-link" href="#" s>
+            <h3>Ajută un sărac</h3>
+          </a>
+        </div>
+        <div class="small-card" style="background-image: url(assets/imgs/masterclass.jpg);">
+          <a class="card-link" href="#">
+            <h3>masterclass culinar</h3>
+          </a>
+        </div>
+      </div>
+      <!--/right side-->
+
+
+
+    </div>
+    <!--diverse script-->
+    <script>
+      window.onscroll = function() {
+          const fadeInGrid = document.querySelector("#section-diverse")
+          var top = window.scrollY;
+          const heigh = window.innerHeight; 
+          
+
+          if (top > heigh/3) {
+            fadeInGrid.classList.remove("transform-section");
+          };
+
+        };
+    </script>
+    <!--/diverse script-->
+    <!--/diverse (meniu, categorii, evenimente)-->
+  
+  
+    <!--trendurile sezonului-->
+    <section name="trends" id="section-trenduri">
+
+      <i class="arrows fas fa-chevron-right"></i>
+      <i class="arrows fas fa-chevron-left"></i>
+      
+      
+      <div class="trend-container">
+        <h2>trendul sezonului</h2>
+
+        <div class="trend-slider">
+          <!--page1-->
+          <div class="grid-container">
+          
+            <div class="item1 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend1.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>salată grecească</h4>
+                <p class="ingredients">Roșii, ceapă, brânză de capră.</p>
+                <div class="price-button">
+                  <p class="price">4.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item2 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend2.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>înghețată prăjită</h4>
+                <p class="ingredients">Frișcă, fructe, sirop.</p>
+                <div class="price-button">
+                  <p class="price">5.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item3 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend3.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>cezar cu crveți</h4>
+                <p class="ingredients">creveți, roșii cherry, sos cezar.</p>
+                <div class="price-button">
+                  <p class="price">10.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!--/page1-->
+
+          <!--page2-->
+          <div class="grid-container hidden">
+
+            <div class="item1 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend4.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>cheesecake</h4>
+                <p class="ingredients">brânză de vacă, lapte, fructe.</p>
+                <div class="price-button">
+                  <p class="price">9.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item2 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend5.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>stake somon</h4>
+                <p class="ingredients">somon, sos balsamic</p>
+                <div class="price-button">
+                  <p class="price">9.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item3 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend6.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>platou stridii</h4>
+                <p class="ingredients">platou, midii</p>
+                <div class="price-button">
+                  <p class="price">15.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!--/page2-->
+
+          <!--page3-->
+          <div class="grid-container hidden">
+
+            <div class="item1 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend7.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>shake exotic</h4>
+                <p class="ingredients">lapte, cocos, ciocolată</p>
+                <div class="price-button">
+                  <p class="price">6.50$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item2 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend8.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>shake capsuni</h4>
+                <p class="ingredients">capsuni, lapte, vanilie</p>
+                <div class="price-button">
+                  <p class="price">4.50$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+              
+            </div>
+  
+            <div class="item3 trend-item">
+              <div style="background-image: url(assets/imgs/trends/trend9.jpg);" class="item-img"></div>
+              <div class="item-captions">
+                <h4>salată cu fructe de mare</h4>
+                <p class="ingredients">fructe de mare, frunze de salată</p>
+                <div class="price-button">
+                  <p class="price">11.99$</p>
+                  <a href="cart.html"><button type="button">comandă</button></a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <!--/page3-->
+
+        </div>
+
+      </div>
+
+
+      <div class="page-bulbs">
+        <i class="bullet fas fa-circle"></i>
+        <i class="bullet far fa-circle"></i>
+        <i class="bullet far fa-circle"></i>
+      </div>
+
+      <a class="button" href="meniu.html">
+        vezi meniul
+      </a>
+
+
+      <script>
+
+        const buttonRight = document.querySelector(".fa-chevron-right");
+        const buttonLeft = document.querySelector(".fa-chevron-left");
+        var index = 0;
+        const bullets = document.querySelectorAll(".bullet");
+        const slideCarousel = document.querySelector(".trend-slider");
+        const slideItems = document.querySelectorAll(".grid-container");
+        const size = slideItems[0].clientWidth;
+        
+        
+        buttonRight.addEventListener("click", function() {
+          
+          index ++;
+      
+
+          if (index > 2) {
+            index = 0;
+          };
+
+          if (index == 0) {
+            {bullets[2].classList.replace("fas", "far")
+            slideItems[2].classList.add("hidden");};
+          };
+          slideItems[index].classList.remove("hidden");
+          bullets[index].classList.remove("far");
+          bullets[index].classList.add("fas");
+          
+          if (index > 0){
+            
+            bullets[index].classList.remove("far");
+            bullets[index].classList.add("fas");
+            
+            slideItems[index - 1].classList.add("hidden");
+            bullets[index - 1].classList.remove("fas");
+            bullets[index - 1].classList.add("far"); 
+          }
+          console.log(index);
+          
+        });
+
+        buttonLeft.addEventListener("click", function() {
+          
+          index --;
+
+          if (index < 0) {
+            index = 2;
+            };
+
+            if (index == 2) {
+              {bullets[0].classList.replace("fas", "far");
+               slideItems[0].classList.add("hidden");
+              }
+            }
+
+            bullets[index].classList.remove("far");
+            bullets[index].classList.add("fas");
+            slideItems[index].classList.remove("hidden");
+          
+          if (index >= 0){
+            
+            bullets[index + 1].classList.remove("fas");
+            bullets[index + 1].classList.add("far");
+            slideItems[index + 1].classList.add("hidden");
+            if (index > 2) {
+              bullets[index - 1].classList.remove("fas");
+              bullets[index - 1].classList.add("far");
+              slideItems[index - 1].classList.add("hidden");
+            }
+          }; 
+
+          console.log(index);
+        });
+        
+      </script>
+    </section>
+    <!--/trendurile sezonului-->
+
+    <!--divider-->
+    <div class="divider divider1">
+      <div class="lines line-short"></div>
+      <div class="lines line-long"></div>
+      <div class="lines line-short"></div>
+    </div>
+    <!--/divider-->
+
+    <!--counter-->
+    <section style="background-image: url(assets/imgs/masterclass.jpg);" id="counters">
+
+      <div class="counters-container">
+
+        <div class="items review-counter">
+          <span id="review-num">0</span>
+  
+          <div class="flipper">
+            <div class="icon-container">
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+    
+          <h4>aprecieri</h4>
+        </div>
+  
+        <div class="items deliveries-counter">
+          <span id="deliveries-num">0</span>
+          <div class="flipper">
+            <div class="icon-container">
+              <i class="fas fa-bicycle"></i>
+            </div>
+          </div>
+          <h4>livrări</h4>
+        </div>
+
+      </div>
+
+      <script>
+
+          const counters = document.getElementById("counters");
+          const reviewCounter = document.getElementById("review-num");
+          const deliveriesCounter = document.getElementById("deliveries-num");
+
+          const wHeight = window.innerHeight;
+          var scrolled = window.scrollY;
+
+          window.addEventListener("load", function() {
+            const revNumber = 224;
+            const delivNumber = 406;
+
+            let revDefault = 0;
+            let delivDefault = 0;
+            
+            
+
+            var timeSet = setInterval(frame, 15);
+            var timeSetDeliv = setInterval(frameDeliv, 15);
+
+
+             
+              function frame() {
+
+                if(revDefault == revNumber) {
+                    clearInterval(timeSet);
+                  } else {
+                    revDefault++;
+                    reviewCounter.innerHTML = revDefault;
+                  };
+              }
+              
+              function frameDeliv() {
+
+                if(delivDefault == delivNumber) {
+                  clearInterval(timeSet);
+                } else {
+                  delivDefault++;
+                  deliveriesCounter.innerHTML = delivDefault;
+                };
+
+              }
+
+            reviewCounter.innerHTML = revDefault;
+            deliveriesCounter.innerHTML = delivDefault;
+          });
+
+      </script>
+
+    </section>
+
+    <!--/counter-->
+
+    <!--reviews-->
+    <section style="background-image: url(assets/imgs/burger.jpg);" id="reviews">
+
+      <div class="reviews-container">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+
+        <h3>best food in the city!</h3>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae iusto quae velit, culpa eveniet laborum voluptas cum suscipit?</p>
+
+        <div class="review review-1">
+
+          <div class="review-card">
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+
+            <p>Amazing! Just amazing!</p>
+
+          </div>
+
+          <div class="profile">
+
+            <div class="profile-img" style="background-image: url(assets/imgs/profiles/profile2.jpeg)">
+
+            </div>
+
+            <p class="name">
+              Sandu Beșâcă
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="review review-2">
+          
+          <div class="review-card">
+
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star" style="color: slategrey;"></i>
+            </div>
+
+            <p>La mama sarmalele erau mai bune!</p>
+          </div>
+
+          <div class="profile">
+            
+            <div class="profile-img" style="background-image: url(assets/imgs/profiles/profile1.jpeg)">
+
+            </div>
+
+            <p class="name">
+              Vera Brejneva
+            </p>
+
+          
+          </div>
+        </div>
+
+      </div>
+
+
+      
+      
+    </section>
+    <!--/reviews-->
+
+
+    <!--slider gallery-->
+    <section id="slider-gallery">
+
+      <h3>our gallery</h3>
+
+      <i class="arrows fas fa-chevron-right"></i>
+      <i class="arrows fas fa-chevron-left"></i>
+
+      <div id="slide-container">
+
+        <div id="image-container">
+
+            <img src="assets/imgs/slider-gallery/img6.jpg" id="last-clone" class="img-fluid last-clone" alt="img1">
+          
+            <img src="assets/imgs/slider-gallery/img1.jpg" class="img-fluid" alt="img2">
+          
+            <img src="assets/imgs/slider-gallery/img2.jpg" class="img-fluid" alt="img3">
+          
+            <img src="assets/imgs/slider-gallery/img3.jpg" class="img-fluid" alt="img4">
+        
+            <img src="assets/imgs/slider-gallery/img4.jpg" class="img-fluid" alt="img5">
+      
+            <img src="assets/imgs/slider-gallery/img5.jpg" class="img-fluid" alt="img6">
+      
+            <img src="assets/imgs/slider-gallery/img6.jpg" class="img-fluid" alt="img7">
+
+            <img src="assets/imgs/slider-gallery/img1.jpg" id="first-clone" class="first-clone img-fluid" alt="img8">
+        
+        </div>
+
+      </div>
+
+      <script>
+        
+        const sliderGallery = document.getElementById("image-container");
+        const images = document.querySelectorAll(".img-fluid");
+
+        //buttons
+        const prevBtn = document.querySelector("#slider-gallery .fa-chevron-left");
+        const nextBtn = document.querySelector("#slider-gallery .fa-chevron-right");
+
+        //counter
+        let counter = 1;
+        const imgWidth = sliderGallery.clientWidth;
+
+        sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+        
+
+        nextBtn.addEventListener("click", function() {
+          
+          counter++;
+
+          function getBack() {
+            counter = 1;
+            sliderGallery.style.transition = "none";
+            sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+          }
+
+          if (counter == images.length -1) {
+            setTimeout(getBack, 700);
+          }else {
+            sliderGallery.style.transition = "0.7s ease-in-out";
+          };
+
+          sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+        
+          console.log(counter);
+          
+        });
+
+        
+
+        prevBtn.addEventListener("click", function() {
+          counter--;
+
+          function getForward() {
+            counter = 6;
+            sliderGallery.style.transition = "none";
+            sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+          }
+
+          if (counter == 0) {
+            setTimeout(getForward, 700);
+          } else {
+            sliderGallery.style.transition = "0.7s ease-in-out";
+          };
+          sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+
+        });
+
+        /* sliderGallery.addEventListener("transitionend", function() {
+
+          if (images[counter].className === "first-clone") {
+            sliderGallery.style.transition = "none";
+            counter = images.length - 2;
+            sliderGallery.style.transform = "translateX(" + (-imgWidth * counter) + "px)";
+
+          };
+
+        }); */
+        
+
+      </script>
+
+    </section>
+    <!--/slider gallery-->
+
+    
+      
+</body>
+
+<!--footer-->
+<footer>
+  <div class="footer-wrap">
+  <div class="container first_class">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <h3>abonează-te</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, vitae architecto. Iste labore quidem, maiores tempore laboriosam modi unde vitae. </p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+        <form class="newsletter">
+           <input type="text" placeholder="Email Address"> 
+          <button type="button">abonează-te</button>  
+        </form>
+        
+        </div>
+        <div class="col-md-4 col-sm-6">
+        <div class="col-md-12">
+          <div class="standard_social_links">
+        <div>
+          <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
+
+          </li>
+          <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-twitter"><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-instagram"><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+          </li>
+        </div>
+      </div>  
+        </div>
+          <div class="clearfix"></div>
+        <div class="col-md-12"><h3 style="text-align: center;">Stay Connected</h3></div>
+        </div>
+      </div>
+  </div>
+    <div class="second_class">
+      <div class="container second_class_bdr">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+
+          <div class="footer-logo">
+              <span id="logo">MyFood</span>
+          </div>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem debitis dolorum illo, beatae quasi voluptatum nobis et doloremque architecto.</p>
+        </div>
+        <div class="col-md-2 col-sm-6">
+
+          <ul class="footer-links">
+            <li><a href="#">Acasă</a>
+            </li>
+            <li><a href="index.html/#section-trenduri">Trenduri</a>
+            </li>
+            <li><a href="#">Meniu</a>
+            </li>
+            <li><a href="#">Contacte</a>
+            </li>
+            
+            <li><a href="#">Oferte</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <ul class="footer-category">
+              <li><a href="#">Evenimente</a>
+              </li>
+              <li><a href="#">Recrutare</a>
+              </li>
+              <li><a href="#">Banchete</a>
+              </li>
+              
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+         
+          <ul class="footer-links">
+            <li><a href="#">Ajută un sărac</a>
+            </li>
+
+            <li><a href="#">Jobs &AMP; Internship</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+    
+    <div class="row">
+      
+      <div class="container-fluid">
+      <div class="copyright"> Totul este creat de mine si doar de mine</div>
+      </div>
+      
+    </div>
+  </div>
+  
+</footer>
+<!--/footer-->
+
+<!--white section-->
+<div class="white-thing"></div>
+
+<script>
+  const whiteThing = document.querySelector(".white-thing");
+
+  window.onload = function() {
+    whiteThing.classList.add("solubil");
+
+    setTimeout(function(){ 
+    whiteThing.remove();
+   }, 800);
+  }
+</script>
+<!--/white section-->
+</html>
